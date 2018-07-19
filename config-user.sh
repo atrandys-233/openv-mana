@@ -7,5 +7,5 @@ for ((i=1;i<=${num};i++ ));
 do
        uname=$(cat /dev/urandom | head -1 | md5sum | head -c 8)
        echo "${uname} suansuanru.site" > psw-file
-       echo "ifconfig-push 10.8.0.ippool[i] 10.8.0.{ipppol[i]+1}" > ${uname}
+       echo "ifconfig-push 10.8.0.ippool[i] 10.8.0.{ipppol[i]+1}" > ./ccd/${uname}
 done

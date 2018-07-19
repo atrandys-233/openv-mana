@@ -8,7 +8,7 @@ do
     uname="user"$(cat /dev/urandom | head -1 | md5sum | head -c 8)
     passwd="key"$(cat /dev/urandom | head -1 | md5sum | head -c 8)
     echo "${uname} ${passwd}" >> psw-file
-    echo "${uname} 10G" >> traffic-limit
+    echo "{"uname":${uname},"traffic":"10G"}" >> traffic-limit.json
     ip1="10.8.0."${ippool[i]}
     ip2="10.8.0."$((ippool[i]+1))
     iptables -A FORWARD -m limit -d ${ip1} --limit 200/sec -j ACCEPT

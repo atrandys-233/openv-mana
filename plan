@@ -1,0 +1,4 @@
+1、安装openv并开启密码登录  done
+2、生成用户密码并开启限速    done
+3、jq使用iptables统计流量，超过限制用户 todo
+4、制作web panel  todo

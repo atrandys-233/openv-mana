@@ -105,8 +105,8 @@ sed -i "s/tls_location/$tlsinfo/" /etc/openvpn/client/client.ovpn
 #下载udpspeeder和udp2raw （amd64版）
 mkdir /usr/src/udp
 cd /usr/src/udp
-curl -o speederv2 https://raw.githubusercontent.com/yobabyshark/onekeyopenvpn/master/speederv2
-curl -o udp2raw https://raw.githubusercontent.com/yobabyshark/onekeyopenvpn/master/udp2raw
+curl -o speederv2 https://raw.githubusercontent.com/yobabyshark/openv-mana/master/speederv2
+curl -o udp2raw https://raw.githubusercontent.com/yobabyshark/openv-mana/master/udp2raw
 chmod +x speederv2 udp2raw
 
 #启动udpspeeder和udp2raw

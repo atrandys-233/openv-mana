@@ -83,12 +83,14 @@ curl -o /etc/openvpn/checkpsw.sh https://raw.githubusercontent.com/yobabyshark/o
 chmod +x /etc/openvpn/checkpsw.sh
 
 #修改client.ovpn文件ca
-cainfo=$(cat /etc/openvpn/client/ca.crt)
-sed -i "s/ca_location/$cainfo/" /etc/openvpn/client/client.ovpn
+echo "<ca>" >> /etc/openvpn/client/client.ovpn
+cat /etc/openvpn/client/ca.crt >> /etc/openvpn/client/client.ovpn
+echo "</ca>" >> /etc/openvpn/client/client.ovpn
 
 #修改client.ovpn文件tls
-tlsinfo=$(cat /etc/openvpn/client/ta.key)
-sed -i "s/tls_location/$tlsinfo/" /etc/openvpn/client/client.ovpn
+echo "<tls-auth>" >> /etc/openvpn/client/client.ovpn
+cat /etc/openvpn/client/ta.key >> /etc/openvpn/client/client.ovpn
+echo "</tls-auth>" >> /etc/openvpn/client/client.ovpn
 
 #下载客户端udp程序
 #wget -P /etc/openvpn/client/ https://github.com/yobabyshark/onekeyopenvpn/raw/master/udp2raw.exe

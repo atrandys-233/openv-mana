@@ -98,12 +98,12 @@ echo "</tls-auth>" >> /etc/openvpn/client/client.ovpn
 #wget -P /etc/openvpn/client/ https://github.com/yobabyshark/onekeyopenvpn/raw/master/speederv2.exe
 
 #下载客户端脚本
-#curl -o /etc/openvpn/client/client_pre.bat https://raw.githubusercontent.com/yobabyshark/onekeyopenvpn/master/client_pre.bat
-#curl -o /etc/openvpn/client/client_down.bat https://raw.githubusercontent.com/yobabyshark/onekeyopenvpn/master/client_down.bat
+curl -o /etc/openvpn/client/client_pre.bat https://raw.githubusercontent.com/yobabyshark/onekeyopenvpn/master/client_pre.bat
+curl -o /etc/openvpn/client/client_down.bat https://raw.githubusercontent.com/yobabyshark/onekeyopenvpn/master/client_down.bat
 
 #修改client_pre脚本ip
-#serverip=$(curl icanhazip.com)
-#sed -i "s/103.102.45.151/$serverip/" /etc/openvpn/client/client_pre.bat
+serverip=$(curl icanhazip.com)
+sed -i "s/103.102.45.151/$serverip/" /etc/openvpn/client/client_pre.bat
 
 #下载udpspeeder和udp2raw （amd64版）
 mkdir /usr/src/udp

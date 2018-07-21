@@ -88,6 +88,7 @@ cat /etc/openvpn/client/ca.crt >> /etc/openvpn/client/client.ovpn
 echo "</ca>" >> /etc/openvpn/client/client.ovpn
 
 #修改client.ovpn文件tls
+echo key-direction 1 >> /etc/openvpn/client/client.ovpn
 echo "<tls-auth>" >> /etc/openvpn/client/client.ovpn
 cat /etc/openvpn/client/ta.key >> /etc/openvpn/client/client.ovpn
 echo "</tls-auth>" >> /etc/openvpn/client/client.ovpn

@@ -10,9 +10,12 @@ do
     echo "${uname} ${passwd}" >> psw-file
     ip1="10.8.0."${ippool[i]}
     ip2="10.8.0."$((ippool[i]+1))
-    echo "{"uname":${uname},"ip":$ip1,"traffic":"10G","used":"100"}" >> traffic-limit.json
-    iptables -A FORWARD -m limit -d ${ip1} --limit 200/sec -j ACCEPT
-    iptables -A FORWARD -d ${ip1} -j DROP
+    echo "${uname},$ip1,10G,100,open" >> traffic-limit
+    iptables -n -v -L -t filter|grep $ip1 && ifhave=0 || ifhave=1
+    if [ifhave] then
+        iptables -A FORWARD -m limit -d ${ip1} --limit 200/sec -j ACCEPT
+        iptables -A FORWARD -d ${ip1} -j DROP
+    fi
     echo "ifconfig-push ${ip1} ${ip2}" > ./ccd/${uname}
 done
 service iptables save

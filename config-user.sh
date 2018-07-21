@@ -12,7 +12,7 @@ do
     ip2="10.8.0."$((ippool[i]+1))
     echo "${uname},$ip1,10G,100,open" >> traffic-limit
     iptables -n -v -L -t filter|grep $ip1 && ifhave=0 || ifhave=1
-    if [$ifhave==1]; then
+    if [$ifhave -eq 1]; then
         iptables -A FORWARD -m limit -d ${ip1} --limit 200/sec -j ACCEPT
         iptables -A FORWARD -d ${ip1} -j DROP
     fi

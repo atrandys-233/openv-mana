@@ -11,7 +11,7 @@ do
     echo "${uname} ${passwd}" >> psw-file
     ip1="10.8.0."${ippool[i]}
     ip2="10.8.0."$((ippool[i]+1))
-    echo "${uname},$ip1,10000000000" >> traffic-limit
+    echo "${uname} $ip1 10000000000" >> traffic-limit
     iptables -n -v -L -t filter|grep $ip1 && ifhave=0 || ifhave=1
     if [ $ifhave -eq 1 ]; then
         iptables -A FORWARD -m limit -d ${ip1} --limit 200/sec -j ACCEPT

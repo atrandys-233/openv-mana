@@ -98,8 +98,8 @@ echo "</tls-auth>" >> /etc/openvpn/client/client.ovpn
 #wget -P /etc/openvpn/client/ https://github.com/yobabyshark/onekeyopenvpn/raw/master/speederv2.exe
 
 #下载客户端脚本
-curl -o /etc/openvpn/client/client_pre.bat https://raw.githubusercontent.com/yobabyshark/onekeyopenvpn/master/client_pre.bat
-curl -o /etc/openvpn/client/client_down.bat https://raw.githubusercontent.com/yobabyshark/onekeyopenvpn/master/client_down.bat
+curl -o /etc/openvpn/client/client_pre.bat https://raw.githubusercontent.com/yobabyshark/openv-mana/master/client_pre.bat
+curl -o /etc/openvpn/client/client_down.bat https://raw.githubusercontent.com/yobabyshark/openv-mana/master/client_down.bat
 
 #修改client_pre脚本ip
 serverip=$(curl icanhazip.com)

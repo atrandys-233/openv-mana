@@ -10,13 +10,13 @@ yum -y install epel-release
 sed -i "s/enabled=0/enabled=1/" /etc/yum.repos.d/epel.repo
 
 #安装openvpn
-yum -y install openvpn-2.4.6-1.el7 easy-rsa-3.0.3-1.el7
+yum -y install openvpn-2.4.7-1.el7 easy-rsa-3.0.3-1.el7
 
 #复制easy到openvpn
 cp -rf /usr/share/easy-rsa/ /etc/openvpn/easy-rsa
 
 #复制server.conf
-cp -f /usr/share/doc/openvpn-2.4.6/sample/sample-config-files/server.conf /etc/openvpn/
+cp -f /usr/share/doc/openvpn-2.4.7/sample/sample-config-files/server.conf /etc/openvpn/
 
 #复制vars
 cp -f /usr/share/doc/easy-rsa-3.0.3/vars.example /etc/openvpn/easy-rsa/3.0.3/vars
@@ -63,6 +63,7 @@ service iptables save
 
 #启用转发
 echo 1 > /proc/sys/net/ipv4/ip_forward
+sysctl -p
 
 #永久转发
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
